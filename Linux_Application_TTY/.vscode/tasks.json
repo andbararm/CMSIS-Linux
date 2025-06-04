@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Linux App build",
+            "type": "shell",
+            "command": "make",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Linux App clean",
+            "type": "shell",
+            "command": "make clean"
+        },
+        {
+            "label": "Linux transfer application image",
+            "type": "shell",
+            "command": "scp out/LinuxTTY root@192.168.178.35:/root",  //change the IP address to your target's IP address or hostname
+
+         },
+         {
+            "label": "Linux prepare executable",
+            "type": "shell",
+            "command": "ssh root@192.168.178.35 'chmod +x /root/LinuxTTY'",  //change the IP address to your target's IP address or hostname
+            "dependsOn": [
+               "Linux transfer application image"
+            ]
+         },
+         {
+            "label": "Linux launch remote gdbserver",
+            "isBackground": true,
+            "problemMatcher":
+            {
+                "owner": "gdbserver",
+                "pattern":
+                [{
+                    "regexp": ".",
+                    "file": 1,"line": 1,
+                    "column": 1,"message": 1
+                }],
+                "background":
+                {
+                    "activeOnStart": true,
+                    "beginsPattern": "Process (.*) created; pid = (\\d+)",
+                    "endsPattern": "Listening on port (\\d+)"
+                }
+            },
+            "type": "shell",
+            "command": "ssh root@192.168.178.35 'gdbserver --once :1234 /root/LinuxTTY'"   //change the IP address to your target's IP address or hostname
+        }
+    ]
+}

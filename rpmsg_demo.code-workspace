@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "RPMSG_TTY_CMSIS-RTOS2_M4"
+		},
+		{
+			"path": "Linux_Application_TTY"
+		}
+	],
+	"settings": {
+		"cmsis-csolution.actions": [
+			{
+				"path": "MDK/RPMSG_TTY_CMSIS-RTOS2_M4.csolution.yml",
+				"target": "Target_1",
+				"config": {
+					"debug": "Arm Debugger"
+				}
+			}
+		],
+		"clangd.arguments": [
+			"--compile-commands-dir=c:\\andbar01\\examples\\CMSIS-Linux\\RPMSG_TTY_CMSIS-RTOS2_M4\\out\\RPMSG_TTY_CMSIS-RTOS2_M4\\Target_1"
+		],
+		"debug.hideSlowPreLaunchWarning": true,
+	}
+}

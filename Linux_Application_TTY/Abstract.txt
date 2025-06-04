@@ -1,0 +1,18 @@
+The Linux_Application_TTY for MCIMX7D boards is an example of communication between the
+Cortex-A and the Cortex-M using the OpenAMP stack as provided by NXP.
+
+On the Cortex-A the imx_rpmsg_tty module has to be loaded to the
+Linux kernel. Its source code is available in the GIT repository:
+http://git.freescale.com/git/cgit.cgi/imx/linux-2.6-imx.git
+
+Its counterpart is the RPMSG_TTY_RTX_M4. The Linux application sends 
+a message "Hello from A7" and the TTY RTX application answers with 
+the message "Hello from M4".
+
+In order to build this project, which is pre-configured for GCC 7.4.1, you need
+to download and install a compatible toolchain. Please follow the steps:
+1. Download and extract the toolchain from Linaro website:
+https://releases.linaro.org/components/toolchain/binaries/7.4-2019.02/arm-linux-gnueabihf/
+2. On Arm DS click on Window > Preferences > Arm DS > Toolchains > Add...
+3. Select the downloaded toolchain and click Next to run autodetection.
+4. Click Finish to complete the process. You'll be prompted to restart Eclipse for these changes to apply. 

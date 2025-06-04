@@ -1,0 +1,14 @@
+The RPMSG_TTY_CMSIS-RTOS2_M4 application for the MCIMX7D-SABRE and IMX7-PHYBOARD-ZETA boards
+is an example of communication between the Cortex-A and the Cortex-M using the 
+OpenAMP stack as provided by NXP.
+
+This project is based on the NXP FreeRTOS-BSP for Cortex-M4:
+https://www.nxp.com/webapp/Download?colCode=FREERTOS_MX6SX_1.0.0_WIN
+
+On the Cortex-A the imx_rpmsg_tty module has to be loaded to the
+Linux kernel. Its source code is available in the GIT repository:
+http://git.freescale.com/git/cgit.cgi/imx/linux-2.6-imx.git
+
+Its counterpart is the Linux_Application_TTY. The Linux application sends 
+a message "Hello from A7" and the RPMSG_TTY_CMSIS-RTOS2_M4 application answers with
+the message "Hello from M4".
